@@ -40,7 +40,7 @@ export default async function Product() {
                         <div className='w-full flex flex-col border p-5 gap-6'>
                             <h3>Sales Order</h3>
                             <div className="">
-                                <Component/> 
+                                <Component chartData={data}/> 
                             </div>
                         </div>
                     </div>

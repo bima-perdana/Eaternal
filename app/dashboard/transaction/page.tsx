@@ -24,7 +24,7 @@ export default async function Transaction() {
 
   const totalSold = data.reduce((total, brand) => total + brand.count_sold, 0);
 
-  // Transform data for LineChartComponent
+
   const chartData = data.map((brand) => ({
     name: brand.name,
     count_sold: brand.count_sold,
@@ -38,7 +38,7 @@ export default async function Transaction() {
           <div className="w-full flex flex-col gap-6">
             <div className="w-full flex flex-col border p-4 gap-5">
               <h5>Total Sold</h5>
-              <div className="flex gap-2">
+              <div className="flex gap-2 items-center">
                 <div className="flex rounded-[24px] p-2 gap-3">
                   <Image src={logoSold} alt="Logo Sold" />
                 </div>

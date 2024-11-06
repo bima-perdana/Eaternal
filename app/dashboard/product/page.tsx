@@ -37,7 +37,7 @@ export default async function Product() {
                     <div className = 'w-full flex flex-col gap-6'>
                         <div className='w-full flex flex-col border p-4 gap-5'>
                             <h5>Total Item</h5>
-                            <div className='flex gap-2'>
+                            <div className='flex gap-2 items-center'>
                                 <div className="flex rounded-[24px] p-2 gap-3">
                                     <Image src={logoItem} alt="Logo Item"/>
                                 </div>

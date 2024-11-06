@@ -1,7 +1,12 @@
 import logoItem from '@/app/assets/logo-order.png'
 import Image from 'next/image';
 import { Component } from './bar-chart';
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Eaternal - Product",
+
+};
 interface User {
     id: number;
     username: string;
@@ -16,13 +21,16 @@ export default async function Product() {
     const data: User[] = users.data;
 
     const totalItem = data.reduce((total, user) => total + user.count_transactions, 0);
+
+    const chartData = data.map((user) => ({
+        username: user.username,
+        count_transactions: user.count_transactions,
+      }));
     
-    console.log(data);
-    console.log(totalItem);
+    
     return (
 
         <div className = 'container mx-auto'>
-            <div className = 'flex flex-wrap'>
                 <div className = 'flex w-full flex-col p-5 gap-6'>
                     <h1>Product</h1>
 
@@ -37,15 +45,14 @@ export default async function Product() {
                             </div>
 
                         </div>
-                        <div className='w-full flex flex-col border p-5 gap-6'>
+                        <div className='w-[1160px] h-[335px] flex flex-col border border-[#E5E5E5] p-5 gap-6'>
                             <h3>Sales Order</h3>
-                            <div className="">
-                                <Component chartData={data}/> 
+                            <div className="flex w-full h-full p-5 gap-6">
+                                <Component chartData={chartData}/> 
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     );
 }

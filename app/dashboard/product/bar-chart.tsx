@@ -1,6 +1,6 @@
 "use client"
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
-import { ChartConfig, ChartContainer } from "@/components/ui/chart";
+import { ChartContainer } from "@/components/ui/chart";
 
 
 interface ChartData {
@@ -10,6 +10,24 @@ interface ChartData {
 
 interface ComponentProps {
     chartData: ChartData[];
+}
+
+const Custombar = (props: any) => {
+    const {x, y, width, height, fill, radius } = props;
+
+    return (
+        <g>
+            <rect
+                x={x}
+                y={y}
+                width={width}
+                height={height}
+                fill={fill}
+                rx={radius}
+                ry={radius}
+            />
+        </g>
+    )
 }
 
 export function Component({ chartData }: ComponentProps) {
@@ -26,11 +44,11 @@ export function Component({ chartData }: ComponentProps) {
   
     return (
       <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
-        <BarChart data={chartData}>
+        <BarChart data={chartData} barGap={6}>
           <CartesianGrid vertical={false} />
-          <XAxis dataKey="username" />
-          <YAxis tickLine={false} tickMargin={10} axisLine={false} />
-          <Bar dataKey="count_transactions" fill="var(--color-desktop)" radius={4} />
+          <XAxis dataKey="username" className="text-chart-string" />
+          <YAxis tickLine={false} tickMargin={10} axisLine={false} className="text-chart-number" />
+          <Bar dataKey="count_transactions" fill="var(--color-desktop)" shape={<Custombar radius={10}/>} barSize={16}/>
         </BarChart>
       </ChartContainer>
     );

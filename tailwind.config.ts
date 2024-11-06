@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+		fontFamily: {
+			inter: ['"Inter", sans-serif'],
+		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
@@ -59,8 +62,9 @@ const config: Config = {
   				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))',
-				'primary-gradient': '#1488CC',
-				'secondary-gradient' : '#2B32B2', 
+				'primary-gradient': 'rgba(20, 136, 204, 1)',
+				'secondary-gradient' : 'rgba(43, 50, 178, 1)', 
+				'hover-sidebar' : '#FFFFFF',
   			}
 
   		},
